@@ -2,29 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//generates terrain
+
 public class levelGen : MonoBehaviour
 {
-  
   public GameObject Coin;
   public PlayerMovement player;
   [SerializeField] private List<GameObject> terrainTypes;
   public static List<GameObject> terrainList = new List<GameObject>();
-
   int rTerrain = 0;
   int rNum;
   int lev2player = 12;
   float max = 0;
   int terrainMade = 0;
 
-  Vector3 pos = new Vector3(0,0,0);
+    Vector3 pos = new Vector3(0,0,0);
     void Start(){
       for(int i = -12 ; i < 12; i++){
           pos = new Vector3(0,0,i);
           GameObject terrain = Instantiate(terrainTypes[3]) as GameObject;
-          
           terrainList.Add(terrain);
           terrain.transform.position = pos;
-          
         }
       for(int i = 0; i < 4;i++){
         rTerrain = Random.Range(0,terrainTypes.Count);
@@ -43,8 +41,11 @@ public class levelGen : MonoBehaviour
       }
       rNum = 0;
     }
+
     // Update is called once per frame
-  void Update(){
+    //deletes terrain at the very beginning
+
+void Update(){
 
     if(Input.GetButtonUp("up") && Mathf.Round(max) == Mathf.Round(player.transform.position.z) && player.transform.position==player.endPos){
       if(terrainMade == rNum){
@@ -67,12 +68,7 @@ public class levelGen : MonoBehaviour
         terrainMade++;
       }
     }
-    
-    
-      
     if(max < player.transform.position.z)
       max = player.transform.position.z;
   }
 }
-    
-

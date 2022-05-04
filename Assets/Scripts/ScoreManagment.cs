@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//keeps track of score based on the number of coins collected and the distance traveled
+
 public class ScoreManagment : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;

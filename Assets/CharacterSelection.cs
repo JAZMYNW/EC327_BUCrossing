@@ -9,13 +9,15 @@ public class CharacterSelection : MonoBehaviour
 
 
   void Start(){
+
 charnum = 0;
+
+//Character Selection
 
 }
   public void TurkeyButton(){
     charnum = 1;
       SceneManager.LoadScene("GamePlay");
-
   }
   public void RhettButton(){
       charnum = 2;
@@ -33,7 +35,6 @@ charnum = 0;
       charnum = 5;
       SceneManager.LoadScene("GamePlay");
   }
-
   public void ProfessorButton(){
       charnum = 6;
       SceneManager.LoadScene("GamePlay");

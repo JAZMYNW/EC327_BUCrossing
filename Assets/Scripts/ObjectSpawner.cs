@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//spawns all objects (obstacles, player)
+
 public class ObjectSpawner : MonoBehaviour
 {
-    
+
     [SerializeField] private Transform spawnPos;
     [SerializeField] private float minTime;
     [SerializeField] private float maxTime;
@@ -15,11 +17,13 @@ public class ObjectSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnObject());
         direction = Random.Range(0,2);
-        
-        
+
+
     }
 
-    // Update is called once per frame
+// Update is called once per frame
+
+//adds delay to object spawning when the player spawns
 
     private IEnumerator SpawnObject(){
         yield return new WaitForSeconds(Random.Range(0.5f,1));
@@ -29,7 +33,7 @@ public class ObjectSpawner : MonoBehaviour
             if(direction == 0){
                 go.transform.Translate(new Vector3(0, 0 , 18));
                 go.transform.Rotate(new Vector3(0, 180, 0));
-                
+
             }
             yield return new WaitForSeconds(Random.Range(minTime,maxTime));
         }
